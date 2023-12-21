@@ -37,7 +37,7 @@ while cap.isOpened():
             if (myHand[8][1] > myHand[5][1] and myHand[20][1] > myHand[18][1]
             and myHand[12][1] > myHand[10][1] and myHand[16][1] > myHand[14][1]
             and myHand[4][0] < myHand[2][0] ):
-                label = "Nam dam"
+                label = "Punch"
 
             if(myHand[8][1] > myHand[5][1] and myHand[20][1] > myHand[18][1]
             and myHand[12][1] < myHand[10][1] and myHand[16][1] > myHand[14][1]
@@ -46,7 +46,7 @@ while cap.isOpened():
             if(myHand[8][1] < myHand[5][1] and myHand[20][1] > myHand[18][1]
             and myHand[12][1] < myHand[10][1] and myHand[16][1] > myHand[14][1]
             and myHand[4][0] < myHand[2][0]):
-                label = "Hi chao cau"
+                label = "Hello"
             if (myHand[8][0] > myHand[3][0] and myHand[20][1] < myHand[18][1]
             and myHand[12][1] < myHand[10][1] and myHand[16][1] < myHand[14][1]
             and myHand[4][0] > myHand[2][0]):
@@ -65,18 +65,18 @@ while cap.isOpened():
             if (myHand[8][1] > myHand[5][1] and myHand[12][1] > myHand[9][1]
             and myHand[16][1] > myHand[13][1] and myHand[20][1] > myHand[17][1]
             and myHand[2][0] < myHand[4][0]):
-                label = "turn right"
+                label = "Turn right"
             if (myHand[8][1] > myHand[5][1] and myHand[12][1] > myHand[9][1]
             and myHand[16][1] > myHand[13][1] and myHand[20][1] > myHand[17][1]
             and myHand[4][0] < myHand[2][0] and not myHand[4][0] > myHand[13][0] and not myHand[4][1]>myHand[8][1]):
-                label = "turn left"
+                label = "Turn left"
             if (myHand[8][1] < myHand[5][1] and myHand[20][1] > myHand[18][1]
                 and myHand[12][1] > myHand[10][1] and myHand[16][1] > myHand[14][1]
                 and myHand[4][0] < myHand[2][0]):
                 label = "Forward"
             if (myHand[8][1] > myHand[5][1] and myHand[20][1] < myHand[18][1] and myHand[12][1] < myHand[10][1] and
                 myHand[16][1] < myHand[14][1] and myHand[4][1] > myHand[2][1]):
-                label = "down"
+                label = "Down"
 
     cv2.putText(img,str(label),(50,50),cv2.FONT_ITALIC,1,(255, 8, 90),2,cv2.LINE_AA)
     cv2.imshow("Hai ban tay cua em",img)
@@ -84,4 +84,3 @@ while cap.isOpened():
     if key == 27:
         break
 cap.release()
-
