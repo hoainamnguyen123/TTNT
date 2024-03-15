@@ -18,7 +18,7 @@ namespace QuanLiKhachSan.All_user_control
         {
             InitializeComponent();
         }
-
+        //Hiển thị dữ liệu ds khách lên dgv
         public void UC_CheckOut_Load(object sender, EventArgs e)
         {
             string query = "select customer.cid ,customer.cname ,customer.idcccd, customer.mobile,customer.gender,customer.dob,customer.address,customer.checkin,Room.roomNo,Room.price from customer,Room where customer.roomid = Room.roomid and chekout = 'NO'";
@@ -32,7 +32,9 @@ namespace QuanLiKhachSan.All_user_control
         }
         private void tbTimKiem_TextChanged(object sender, EventArgs e)
         {
-            string query = "select customer.cid,customer.cname ,customer.idcccd, customer.mobile,customer.gender,customer.dob,customer.address,customer.checkin,Room.roomNo,Room.price from customer,Room where customer.roomid = Room.roomid and chekout = 'NO' and mobile like '%"+ tbTimKiem.Text +"%'";
+            //truy vấn vào csdl và hiển thị lên dgv
+            string query = "select customer.cid,customer.cname ,customer.idcccd, customer.mobile,customer.gender,customer.dob,customer.address,customer.checkin,Room.roomNo,Room.price from " +
+                "customer,Room where customer.roomid = Room.roomid and chekout = 'NO' and mobile like '%"+ tbTimKiem.Text +"%'";
             DataSet ds = fn.GetData(query);
             dgwDSKhach.DataSource = ds.Tables[0];
         }
@@ -43,6 +45,7 @@ namespace QuanLiKhachSan.All_user_control
         string sdt;
         private void dgwDSKhach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //lấy dư liệu
                 int i = dgwDSKhach.CurrentRow.Index;
                 id = int.Parse(dgwDSKhach.Rows[i].Cells[0].Value.ToString());
                 tbTenKH.Text = dgwDSKhach.Rows[i].Cells[1].Value.ToString();
@@ -68,6 +71,7 @@ namespace QuanLiKhachSan.All_user_control
                 int roundedDays = (int)Math.Ceiling(days);
                 //tinh tien
                 int payment = (roundedDays + 1) * int.Parse(tienPhong);
+                //hiển thị messabox xác nhận hóa đơn
                 dia = MessageBox.Show("Bạn có chắc chắn muốn thanh toán không ?"+
                     "\n" + "Hóa Đơn :" +
                     "\n    Tên :" + tbTenKH.Text + 
@@ -81,6 +85,7 @@ namespace QuanLiKhachSan.All_user_control
                     , "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if(dia == DialogResult.OK)
                 {
+                    //lưu vào csdl
                     string query = "update customer set chekout = 'YES',checkout = '" + dtpNgayTraPhong.Text + "',payment = '"+payment+"'  where cid = " + id + " update Room set booked =N'CHƯA ĐẶT' where roomNo = '" + tbSoPhong.Text+"'";
                     fn.setData(query, "thanh toán thành công");
                     UC_CheckOut_Load(this, null);

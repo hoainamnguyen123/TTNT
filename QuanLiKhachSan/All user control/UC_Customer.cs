@@ -22,6 +22,7 @@ namespace QuanLiKhachSan.All_user_control
 
         private void UC_Customer_Load(object sender, EventArgs e)
         {
+            //tạo câu truy vấn đổ dữ liệu vào dgvDSkhachHang
             string query = "select * from customer";
             DataSet ds = fn.GetData(query);
             dgwDSKhachHang.DataSource = ds.Tables[0];
@@ -36,6 +37,7 @@ namespace QuanLiKhachSan.All_user_control
         {
             if (cbfill.SelectedIndex == 0)
             {
+                //Xử lí khi chọn tất cả
                 string query = "select * from customer where 1 = 1";
 
                 DataSet ds = fn.GetData(query);
@@ -44,14 +46,17 @@ namespace QuanLiKhachSan.All_user_control
             }
             if (cbfill.SelectedIndex == 1)
             {
+                //Xử lí khi chọn đã trả phòng
                 string query = "select * from customer where chekout = 'YES'";
 
                 DataSet ds = fn.GetData(query);
 
                 dgwDSKhachHang.DataSource = ds.Tables[0];
             }
+
             if(cbfill.SelectedIndex == 2)
             {
+
                 string query = "select * from customer where chekout = 'NO'";
 
                 DataSet ds = fn.GetData(query);

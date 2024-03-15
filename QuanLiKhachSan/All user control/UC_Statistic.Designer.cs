@@ -36,26 +36,26 @@
             this.lbNam = new System.Windows.Forms.Label();
             this.lbThang = new System.Windows.Forms.Label();
             this.dgwDSK = new System.Windows.Forms.DataGridView();
-            this.lbSoKhach = new System.Windows.Forms.Label();
-            this.lbPhongmax = new System.Windows.Forms.Label();
-            this.lbNgayMax = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.gbThongke = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.bntThongKe = new Guna.UI2.WinForms.Guna2Button();
-            this.lbDSK = new System.Windows.Forms.Label();
-            this.qLKhachSanDataSet = new QuanLiKhachSan.QLKhachSanDataSet();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerTableAdapter = new QuanLiKhachSan.QLKhachSanDataSetTableAdapters.customerTableAdapter();
             this.cnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLKhachSanDataSet = new QuanLiKhachSan.QLKhachSanDataSet();
+            this.lbSoKhach = new System.Windows.Forms.Label();
+            this.lbPhongmax = new System.Windows.Forms.Label();
+            this.lbNgayMax = new System.Windows.Forms.Label();
+            this.lbDoanhThu = new System.Windows.Forms.Label();
+            this.gbThongke = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bntThongKe = new Guna.UI2.WinForms.Guna2Button();
+            this.lbDSK = new System.Windows.Forms.Label();
+            this.customerTableAdapter = new QuanLiKhachSan.QLKhachSanDataSetTableAdapters.customerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDSK)).BeginInit();
-            this.gbThongke.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).BeginInit();
+            this.gbThongke.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -166,100 +166,6 @@
             this.dgwDSK.Size = new System.Drawing.Size(933, 373);
             this.dgwDSK.TabIndex = 6;
             // 
-            // lbSoKhach
-            // 
-            this.lbSoKhach.AutoSize = true;
-            this.lbSoKhach.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbSoKhach.Location = new System.Drawing.Point(10, 48);
-            this.lbSoKhach.Name = "lbSoKhach";
-            this.lbSoKhach.Size = new System.Drawing.Size(151, 24);
-            this.lbSoKhach.TabIndex = 7;
-            this.lbSoKhach.Text = "Tổng Số Khách :";
-            this.lbSoKhach.Click += new System.EventHandler(this.lbSoKhach_Click);
-            // 
-            // lbPhongmax
-            // 
-            this.lbPhongmax.AutoSize = true;
-            this.lbPhongmax.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbPhongmax.Location = new System.Drawing.Point(6, 136);
-            this.lbPhongmax.Name = "lbPhongmax";
-            this.lbPhongmax.Size = new System.Drawing.Size(287, 24);
-            this.lbPhongmax.TabIndex = 8;
-            this.lbPhongmax.Text = "Phòng có lượt thuê nhiều nhất :";
-            // 
-            // lbNgayMax
-            // 
-            this.lbNgayMax.AutoSize = true;
-            this.lbNgayMax.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbNgayMax.Location = new System.Drawing.Point(10, 240);
-            this.lbNgayMax.Name = "lbNgayMax";
-            this.lbNgayMax.Size = new System.Drawing.Size(277, 24);
-            this.lbNgayMax.TabIndex = 9;
-            this.lbNgayMax.Text = "Ngày có lượt thuê nhiều nhất :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(6, 358);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 24);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Tổng Doanh Thu :";
-            // 
-            // gbThongke
-            // 
-            this.gbThongke.Controls.Add(this.lbSoKhach);
-            this.gbThongke.Controls.Add(this.label4);
-            this.gbThongke.Controls.Add(this.lbPhongmax);
-            this.gbThongke.Controls.Add(this.lbNgayMax);
-            this.gbThongke.Location = new System.Drawing.Point(1041, 303);
-            this.gbThongke.Name = "gbThongke";
-            this.gbThongke.Size = new System.Drawing.Size(801, 421);
-            this.gbThongke.TabIndex = 11;
-            this.gbThongke.TabStop = false;
-            this.gbThongke.Text = "Báo Cáo:";
-            // 
-            // bntThongKe
-            // 
-            this.bntThongKe.BorderRadius = 13;
-            this.bntThongKe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.bntThongKe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.bntThongKe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bntThongKe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.bntThongKe.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bntThongKe.ForeColor = System.Drawing.Color.White;
-            this.bntThongKe.Location = new System.Drawing.Point(1065, 141);
-            this.bntThongKe.Name = "bntThongKe";
-            this.bntThongKe.Size = new System.Drawing.Size(180, 45);
-            this.bntThongKe.TabIndex = 12;
-            this.bntThongKe.Text = "Xem Thống Kê";
-            this.bntThongKe.Click += new System.EventHandler(this.bntThongKe_Click);
-            // 
-            // lbDSK
-            // 
-            this.lbDSK.AutoSize = true;
-            this.lbDSK.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbDSK.Location = new System.Drawing.Point(36, 314);
-            this.lbDSK.Name = "lbDSK";
-            this.lbDSK.Size = new System.Drawing.Size(176, 24);
-            this.lbDSK.TabIndex = 11;
-            this.lbDSK.Text = "Danh Sách Khách :";
-            // 
-            // qLKhachSanDataSet
-            // 
-            this.qLKhachSanDataSet.DataSetName = "QLKhachSanDataSet";
-            this.qLKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataMember = "customer";
-            this.customerBindingSource.DataSource = this.qLKhachSanDataSet;
-            // 
-            // customerTableAdapter
-            // 
-            this.customerTableAdapter.ClearBeforeFill = true;
-            // 
             // cnameDataGridViewTextBoxColumn
             // 
             this.cnameDataGridViewTextBoxColumn.DataPropertyName = "cname";
@@ -295,6 +201,100 @@
             this.checkinDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.checkinDataGridViewTextBoxColumn.Name = "checkinDataGridViewTextBoxColumn";
             // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataMember = "customer";
+            this.customerBindingSource.DataSource = this.qLKhachSanDataSet;
+            // 
+            // qLKhachSanDataSet
+            // 
+            this.qLKhachSanDataSet.DataSetName = "QLKhachSanDataSet";
+            this.qLKhachSanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lbSoKhach
+            // 
+            this.lbSoKhach.AutoSize = true;
+            this.lbSoKhach.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbSoKhach.Location = new System.Drawing.Point(10, 48);
+            this.lbSoKhach.Name = "lbSoKhach";
+            this.lbSoKhach.Size = new System.Drawing.Size(151, 24);
+            this.lbSoKhach.TabIndex = 7;
+            this.lbSoKhach.Text = "Tổng Số Khách :";
+            this.lbSoKhach.Click += new System.EventHandler(this.lbSoKhach_Click);
+            // 
+            // lbPhongmax
+            // 
+            this.lbPhongmax.AutoSize = true;
+            this.lbPhongmax.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbPhongmax.Location = new System.Drawing.Point(6, 136);
+            this.lbPhongmax.Name = "lbPhongmax";
+            this.lbPhongmax.Size = new System.Drawing.Size(287, 24);
+            this.lbPhongmax.TabIndex = 8;
+            this.lbPhongmax.Text = "Phòng có lượt thuê nhiều nhất :";
+            // 
+            // lbNgayMax
+            // 
+            this.lbNgayMax.AutoSize = true;
+            this.lbNgayMax.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbNgayMax.Location = new System.Drawing.Point(10, 240);
+            this.lbNgayMax.Name = "lbNgayMax";
+            this.lbNgayMax.Size = new System.Drawing.Size(277, 24);
+            this.lbNgayMax.TabIndex = 9;
+            this.lbNgayMax.Text = "Ngày có lượt thuê nhiều nhất :";
+            // 
+            // lbDoanhThu
+            // 
+            this.lbDoanhThu.AutoSize = true;
+            this.lbDoanhThu.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbDoanhThu.Location = new System.Drawing.Point(6, 358);
+            this.lbDoanhThu.Name = "lbDoanhThu";
+            this.lbDoanhThu.Size = new System.Drawing.Size(161, 24);
+            this.lbDoanhThu.TabIndex = 10;
+            this.lbDoanhThu.Text = "Tổng Doanh Thu :";
+            // 
+            // gbThongke
+            // 
+            this.gbThongke.Controls.Add(this.lbSoKhach);
+            this.gbThongke.Controls.Add(this.lbDoanhThu);
+            this.gbThongke.Controls.Add(this.lbPhongmax);
+            this.gbThongke.Controls.Add(this.lbNgayMax);
+            this.gbThongke.Location = new System.Drawing.Point(1041, 303);
+            this.gbThongke.Name = "gbThongke";
+            this.gbThongke.Size = new System.Drawing.Size(801, 421);
+            this.gbThongke.TabIndex = 11;
+            this.gbThongke.TabStop = false;
+            this.gbThongke.Text = "Báo Cáo:";
+            // 
+            // bntThongKe
+            // 
+            this.bntThongKe.BorderRadius = 13;
+            this.bntThongKe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bntThongKe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bntThongKe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bntThongKe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bntThongKe.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bntThongKe.ForeColor = System.Drawing.Color.White;
+            this.bntThongKe.Location = new System.Drawing.Point(1065, 141);
+            this.bntThongKe.Name = "bntThongKe";
+            this.bntThongKe.Size = new System.Drawing.Size(180, 45);
+            this.bntThongKe.TabIndex = 12;
+            this.bntThongKe.Text = "Xem Thống Kê";
+            this.bntThongKe.Click += new System.EventHandler(this.bntThongKe_Click);
+            // 
+            // lbDSK
+            // 
+            this.lbDSK.AutoSize = true;
+            this.lbDSK.Font = new System.Drawing.Font("Bahnschrift SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbDSK.Location = new System.Drawing.Point(36, 314);
+            this.lbDSK.Name = "lbDSK";
+            this.lbDSK.Size = new System.Drawing.Size(176, 24);
+            this.lbDSK.TabIndex = 11;
+            this.lbDSK.Text = "Danh Sách Khách :";
+            // 
+            // customerTableAdapter
+            // 
+            this.customerTableAdapter.ClearBeforeFill = true;
+            // 
             // UC_Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -312,10 +312,10 @@
             this.Size = new System.Drawing.Size(1882, 780);
             this.Load += new System.EventHandler(this.UC_Statistic_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwDSK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).EndInit();
             this.gbThongke.ResumeLayout(false);
             this.gbThongke.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLKhachSanDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +329,7 @@
         private System.Windows.Forms.Label lbThongKe;
         private System.Windows.Forms.Label lbThang;
         private System.Windows.Forms.Label lbNam;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbDoanhThu;
         private System.Windows.Forms.Label lbNgayMax;
         private System.Windows.Forms.Label lbPhongmax;
         private System.Windows.Forms.Label lbSoKhach;

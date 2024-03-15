@@ -47,6 +47,7 @@ namespace QuanLiKhachSan.All_user_control
 
         private void cbKieuPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //lọc dữ liệu băng phương thức setComboBox ở class function
             cbSoPhong.Items.Clear();
             query = "select roomNo from Room where bed = N'" + cbKieuPhong.Text + "' and roomType = N'" + cbLoaiPhong.Text + "' and booked = N'CHƯA ĐẶT'";
             setComboBox(query, cbSoPhong);
@@ -54,23 +55,24 @@ namespace QuanLiKhachSan.All_user_control
         int rid;
         private void cbSoPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //lọc dữ liệu băng phương thức setComboBox ở class function
             query = "select price, roomid from Room where roomNo = '" + cbSoPhong.Text + "'";
             DataSet ds = fn.GetData(query);
             rid = int.Parse(ds.Tables[0].Rows[0][1].ToString());
+            //tự động tính giá tiền
             tbGiaTien.Text = ds.Tables[0].Rows[0][0].ToString() + " VNĐ / Ngày";
         }
 
         private void btnDangKiKH_Click(object sender, EventArgs e)
         {
+            //checknull
             if(tbHTKH.Text != "" &&  tbCCCD.Text != "" && tbPhone.Text != "" && tbDiaChi.Text != "" && cbGioiTinh.Text != ""
                 && cbKieuPhong.Text != "" && cbLoaiPhong.Text != "" && cbSoPhong.Text != "")
             {
-    
+                //thêm vào csdl bằng phương thức setData
                 query = "insert into customer (cname,idcccd,mobile,gender,dob,address,checkin,roomid) values (N'"+tbHTKH.Text+"','"+tbCCCD.Text+"','"+tbPhone.Text+"',N'"+cbGioiTinh.Text+"',N'"+dtpNgaySinh.Text+"',N'"+tbDiaChi.Text+"','"+dtpNgayThue.Text+"',"+rid+") update Room set booked = N'ĐÃ ĐẶT' where roomNo = '"+cbSoPhong.Text+"'";
                 fn.setData(query, "Đăng kí thành công!");
                 clearAll();
-               
-
             }
             else
             {
@@ -78,6 +80,11 @@ namespace QuanLiKhachSan.All_user_control
             }
             
 
+        }
+        //Xóa tất cả dữ liệu ở các ô
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearAll();
         }
         public void clearAll()
         {
@@ -91,11 +98,6 @@ namespace QuanLiKhachSan.All_user_control
             cbSoPhong.SelectedIndex = -1;
             dtpNgaySinh.Value = DateTime.Now;
             tbGiaTien.Clear();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            clearAll();
         }
 
         private void tbHTKH_TextChanged(object sender, EventArgs e)

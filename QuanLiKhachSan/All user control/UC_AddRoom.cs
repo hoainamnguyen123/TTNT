@@ -23,9 +23,11 @@ namespace QuanLiKhachSan.All_user_control
 
         private void UC_AddRoom_Load(object sender, EventArgs e)
         {
+            //truy vấn đổ dữ liệu vào datagridview bảng DS phòng
             string query = "select * from Room";
             DataSet ds = fn.GetData(query);
             dataGridView1.DataSource = ds.Tables[0];
+            //đặt các thuộc tính về mặc định
             cbfill.SelectedIndex = 0;
             cbfill2.SelectedIndex = 0;
             cbfill3.SelectedIndex = 0;
@@ -33,19 +35,25 @@ namespace QuanLiKhachSan.All_user_control
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+
             if (cbLoaiPhong.Text != "" && cbKieuPhong.Text != "" && tbSoPhong.Text != "" && tbGiaTien.Text != "")
             {
+                //tạo các biến dữ liệu
                 string LoaiPhong = cbLoaiPhong.Text;
                 string KieuPhong = cbKieuPhong.Text;
                 string SoPhong = tbSoPhong.Text;
                 Int64 GiaTien = Int64.Parse(tbGiaTien.Text);
+                //tạo câu truy vấn và gọi đến phương thức setData ở class function
                 query = "insert into Room(roomNo,roomType,bed,price) values ('" + SoPhong + "',N'" + LoaiPhong + "',N'" + KieuPhong + "','" + GiaTien + "')";
                 fn.setData(query, "Đã thêm phòng");
+                //load lại form
                 UC_AddRoom_Load(this, null);
+
                 clearAll();
             }
             else
             {
+                //xử lí không nhập gì
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -104,14 +112,16 @@ namespace QuanLiKhachSan.All_user_control
         {
             if (!isEditing)
             {
-              
+
+
+                //Lấy dữ liệu từ datagridview hiển thị lên các textbox,cb
                 int i = dataGridView1.CurrentRow.Index;
                 id = Int32.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 tbSoPhong.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
                 tbGiaTien.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 cbKieuPhong.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
                 cbLoaiPhong.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
-
+                //thay đổi các thuộc tính thích hợp
                 btnSua.Text = "Lưu";
                 btnSua.FillColor = Color.Green;
                 btnThem.Enabled = false;
@@ -119,19 +129,21 @@ namespace QuanLiKhachSan.All_user_control
                 isEditing = true;
                 btnclear.Enabled = false;
             }
+
             else
             {
+                //Tạo các biến lấy từ các tb,cb
                 string LoaiPhong = cbLoaiPhong.Text;
                 string KieuPhong = cbKieuPhong.Text;
                 string SoPhong = tbSoPhong.Text;
                 Int64 GiaTien = Int64.Parse(tbGiaTien.Text);
-
+                //tạo câu truy vấn và gọi đến phương thức setData ở class function đã tạo
                 query = "UPDATE Room SET roomNo = '" + SoPhong + "' ,roomType = N'" + LoaiPhong + "', bed = N'" + KieuPhong + "', price = '" + GiaTien + "' where roomId = '" + id + "'";
                 fn.setData(query, "Đã sửa phòng thành công");
-
+                //load lại form
                 UC_AddRoom_Load(this, null);
                 clearAll();
-
+                //khôi phục lại các thuộc tính cũ ở trên thay đổi
                 btnSua.Text = "Sửa";
                 btnSua.FillColor = Color.FromArgb(94, 148, 255);
                 btnThem.Enabled = true;
@@ -151,11 +163,14 @@ namespace QuanLiKhachSan.All_user_control
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            //Lấy id từ dgv ds phòng
             int i = dataGridView1.CurrentRow.Index;
             id = Int32.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
+            //kiểm tra xem có chắc chắn xóa
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dữ liệu phòng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                //cập nhật csdl
                 try
                 {
                     query = "DELETE FROM Room WHERE roomId = " + id;
@@ -163,6 +178,7 @@ namespace QuanLiKhachSan.All_user_control
                     UC_AddRoom_Load(this, null);
 
                 }
+                //xử lí trường hợp không thể xóa phòng đang được đặt
                 catch (SqlException)
                 {
                     MessageBox.Show("Không thể xóa phòng vì phòng đã được đặt ít nhất một lần \n Vui lòng chỉ xóa phòng chưa được đặt ","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -173,6 +189,7 @@ namespace QuanLiKhachSan.All_user_control
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
+            //tạo câu truy vấn 
             string query = "select * from Room WHERE 1=1 ";
             if(cbfill.SelectedIndex != 0)
             {
@@ -186,6 +203,7 @@ namespace QuanLiKhachSan.All_user_control
             {
                 query += "AND bed = N'" + cbfill3.Text + "'";
             }
+            //lọc dữ liệu
             DataSet ds = fn.GetData(query);
             dataGridView1.DataSource = ds.Tables[0];
 
